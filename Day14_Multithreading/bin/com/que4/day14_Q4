@@ -1,0 +1,71 @@
+4)Explain wait(), notify(),notifyAll() how they are used for inter thread communication.
+ans : 
+    wait() :- Whenever we need to suspend a synchronized thread unconditionally then
+              we use wait() method.To call wait() method on any object we
+              must have that particular object lock otherwise we will get a
+              runtime exception called IllegalMonitorStateException.
+              Once a thread calls wait() method on any object, first it releases the
+              lock immediately of that particular object and then it enters into the 
+              waiting state immediately.
+                    
+              
+   notify():-
+             Whenever we need to resume a suspended(waiting) thread then we use notify() method.
+              To call notify()method on any object we
+              must have that particular object lock otherwise we will get a
+              runtime exception called IllegalMonitorStateException.
+              Once a thread calls notify() method on any object it also releases the
+              lock of that object but not immediately.
+              
+  notifyAll() - If a thread calls notifyAll(), it sends notification to all parent threads that
+                are in waiting state to resume their execution.
+                To call notifyAll() method on any object we
+                must have that particular object lock otherwise we will get a
+                runtime exception called IllegalMonitorStateException. 
+                
+                
+                
+                
+ for example:-
+       class MyThread implements Runnable{
+	int total = 0;
+	
+	@Override
+	public void run() {
+		
+		synchronized(this) {
+			System.out.println("Child thread doing operation");
+			
+			for(int i=0; i<10; i++) {
+				total += i;
+			}
+			
+			System.out.println("Child thread sending notification");
+			this.notify();
+		}
+	}
+}
+
+
+class Main{
+	public static void main(String[] args) {
+		MyThread mt = new MyThread();
+		Thread t = new Thread(mt);
+		
+		t.start();
+		
+		synchronized(mt) {
+
+			try {
+				System.out.println("Main waiting");
+				mt.wait(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			System.out.println("Main got notification");
+			System.out.println("Total " + mt.total);
+		}
+	}
+}
+              

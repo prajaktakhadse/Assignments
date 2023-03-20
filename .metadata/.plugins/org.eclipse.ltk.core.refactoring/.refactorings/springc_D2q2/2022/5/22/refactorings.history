@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.springc_D2q2.Institue&apos; to &apos;Institute&apos;&#x0D;&#x0A;- Original project: &apos;springc_D2q2&apos;&#x0D;&#x0A;- Original element: &apos;com.springc_D2q2.Institue&apos;&#x0D;&#x0A;- Renamed element: &apos;com.springc_D2q2.Institute&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Institue&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.springc_D2q2{Institue.java[Institue" matchStrategy="1" name="Institute" qualified="false" references="true" similarDeclarations="false" stamp="1653675567545" textual="false" version="1.0"/>
+</session>

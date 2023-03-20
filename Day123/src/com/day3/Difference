@@ -1,0 +1,13 @@
+ Static Variable :
+         1. Belongs to Class
+         2. Can be accessed using ClassName.MemberName. 
+         3. Static variable initializes with default values at the times of class loading.
+         4. All Objects of a class share a single copy of static variables.
+         5. Example:-BankName,branchName ,etc....
+         
+ Non-Static Variable:
+         1. Belong to |Object
+         2. Can be accessed using objectName.MemberName. 
+         3. Static variable initializes with default values at the times of Object creation.
+         4. each object has one local copy of the non-static variables.
+         5. Ex:- accountNumber,name,phone,etc....

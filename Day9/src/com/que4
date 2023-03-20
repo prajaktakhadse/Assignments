@@ -1,0 +1,58 @@
+QUE:-   What is the difference between the Checked and Unchecked exceptions explain it
+        with an example? 
+        
+        
+answer-
+        Checked Exception:-
+              This Exception are checked at compile-time by complier if there is any syntactical error.
+              And it is handled by try-catch block.
+              For example:- IOException,SQLException, etc.
+              
+                import java.io.IOException;
+				public class Main {
+	
+				public static void validate(int age)throws IOException {
+				if(age<18) {
+	
+				throw new IOException("Person is not eligible to vote");
+				}
+				else {
+				System.out.println("Person is eligible to vote!!");
+				}
+				}
+	
+				public static void main(String args[]){
+	
+				try {
+				validate(13);
+				} catch (IOException e) {
+				e.printStackTrace();
+				}
+				System.out.println("rest of the code...");
+				}
+				}
+			
+              
+        Unchecked Exception:-
+              This Exception are checked at run-time . This exception occurs due to bad data provided 
+              by the user.. In simple words, if a program throws an unchecked exception,and even if
+              we didn’t handle or declare it, the program would not give a compilation error.
+              For example, ArithmeticException, NullPointerException,ArrayIndexOutOfBoundsException, etc.
+   
+  QUE2:- How to create a User-defined unchecked exception class. 
+              
+             public class InsufficientFundsException extends Exception {
+
+				public InsufficientFundsException() {
+			
+				}
+			
+				public InsufficientFundsException(String message)
+				{
+					super(message);
+				}
+			
+			}
+              
+              
+              

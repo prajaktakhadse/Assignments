@@ -1,0 +1,38 @@
+this:- this keyword refer to the current object. 
+this keyword resolves the problem of ambiguity.
+this keyword is refer from non-static method only.
+
+
+For Example:-
+class Student{  
+int rollno;  
+String name;  
+double fee;  
+Student(int rollno,String name,double fee){  
+this.rollno=rollno;  
+this.name=name;  
+this.fee=fee;  
+}  
+void display(){System.out.println(rollno+" "+name+" "+fee);}  
+}  
+
+---------------------------------------------------------
+super :- super keyword refers to parent class object.
+when we need to referparent class functionality then we can call it by using "super" keyword.
+
+for example:-
+class Animal{  
+String color="white";  
+}  
+class Dog extends Animal{  
+String color="black";  
+void printColor(){  
+System.out.println(color);//prints color of Dog class  
+System.out.println(super.color);//prints color of Animal class  
+}  
+}  
+class Demo{  
+public static void main(String args[]){  
+Dog d=new Dog();  
+d.printColor();  
+}}  

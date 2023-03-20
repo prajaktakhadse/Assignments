@@ -1,0 +1,31 @@
+
+
+String:-
+A string is a sequence of characters. 
+In java, objects of String are immutable which means a constant and cannot be changed once created.
+for example:- "Hello World";
+---------------------------------------------------------------------------------------
+StringBuffer:-
+StringBuffer class is a thread-safe and synchronized, mutable sequence of characters.
+ A string buffer is like a String, but can be modified.
+ 
+ For Example:-
+ StringBuffer sbuffer = new StringBuffer("Hello");
+ String s = new String(sbuffer); //Hello
+ --------------------------------------------------------------------------------------
+ StringBuilder:-
+ StringBuilder class is a not a thread-safe & synchronized, mutable sequence of characters.
+ A string builder is like a String, but can be modified. StringBuilder is  faster than stringBuffer
+ For Example:-
+ StringBuilder sbuilder = new StringBuilder("Masai");
+String s = new String(sbuilder); //Masai
+---------------------------------------------------------------------------------------------
+to String():-
+he toString() method returns a string as a string.
+It does not change the original string and  can be used to convert a string object into a string.
+
+For Example:-
+let text = "Hello World!";
+let result = text.toString();//Hello World!
+
+}

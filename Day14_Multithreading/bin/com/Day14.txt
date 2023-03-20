@@ -1,0 +1,279 @@
+1)Make a thread that will calculate a product of 10 digits and another thread (main thread ) will print the calculated value of the first thread.
+=>
+   package com.day14;
+
+   public class Demo extends Thread{
+      //overide the run method
+	int prod =1;
+	   @Override
+	   public void run() {
+		  synchronized (this) {
+			  for(int i = 1 ;i<=10 ;i++) {
+				   prod = prod *i;
+			   }
+			   notify();
+		}
+		   
+	   }	   
+   }
+    
+
+    package com.day14;
+
+    public class Main {
+	public static void main(String[] args) throws Exception {
+		   //create the obj
+		Demo t1 = new Demo();
+		 
+		 
+		 //create the thread
+		 
+		 Thread t =new Thread(t1);
+		 
+		 //start the execution
+		 t.start();
+		 
+		 synchronized (t1) {
+			t1.wait(1000);
+			
+			System.out.println("Product of 10 digits: "+ t1.prod);
+		}
+		
+      }
+  }
+***************************************************************************************************************************************************************************
+Que:- What is a race condition? How will you find and solve race condition show with proper running code ?
+Ans:
+     Race condition is a situation when two threads running simultaneously are trying to
+     access the same shared resource.  If two threads operating simultaneously, are trying 
+     to operate on same functionality then it leads to concurrency problem which leads to 
+     race condition and race condition leads to data inconsistency.
+     
+     For example/ If two threads are simultaneously trying to execute bank functions on an
+     account, this may lead to inconsistent behaviour.We solve the race condition by using 
+     synchronized keyword. We make our method synchronized, so that only one thread can 
+     execute that function at one time. Any other thread trying to execute the same function,
+      needs to wait for the first thread to complete its execution. This ensures thread safety
+     is achieved.
+     In below example, one of the threads suppose t1 gets object lock of x1, now t2 will not be able to execute the non-static synchronized function fun() of X class till t1 completes execution. 
+     This ensures there is no inconsitent output.
+
+class X{
+	synchronized void fun(String name){
+		System.out.println("Hello " + name);
+		try{
+			Thread.sleep(1000);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+		System.out.println("Have a nice day " + name);
+	}
+}
+
+class MyThread extends Thread{
+	String name;
+	X x1;
+	
+	public MyThread(X x1, String name){
+		this.x1 = x1;
+		this.name = name;
+	}
+
+	@Override
+	public void run(){
+		x1.fun(name);
+	}
+}
+
+class Main{
+	public static void main(String[] args){
+		X x1 = new X();
+
+		Thread t1 = new MyThread(x1, "Riya");
+		Thread t2 = new MyThread(x1, "Kriya");
+		
+		t1.start();
+		t2.start();
+	}
+}
+		
+     
+  ********************************************************************************************************************************************************************************************
+
+3)Write the fun1() method of Common class using synchronised block to get the Class level lock. (You problem from notes)
+=>
+   package com.que3;
+
+    public class Common {
+	public void fun1(String name) {
+		synchronized(Common.class) {
+			System.out.println("Welcome to Common class. Thread: " + Thread.currentThread().getName());
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			System.out.println("Goodbye " + name);
+		}
+	}
+ }
+ --------------------------------------------
+   package com.que3;
+
+   public class CommanThread implements Runnable{
+	
+	Common c;
+	String name;
+	
+	public CommanThread(Common c, String name) {
+		this.c = c;
+		this.name = name;
+	}
+	
+	@Override
+	public void run() {
+		c.fun1(name);
+	}
+}
+-----------------------------------------------
+package com.que3;
+
+public class Main {
+		public static void main(String[] args) {
+				
+				Common c1 = new Common();
+				Common c2 = new Common();
+				
+				CommanThread ct1 = new CommanThread(c1, "abc");
+				CommanThread ct2 = new CommanThread(c2, "xyz");
+				
+				Thread t1 = new Thread(ct1, "def");
+				Thread t2 = new Thread(ct2, "stu");
+				
+				t1.start();
+				t2.start();
+				
+				
+			}
+}
+********************************************************************************************************************************************************************************************************
+4)Explain wait(), notify(),notifyAll() how they are used for inter thread communication.
+ans : 
+    wait() :- Whenever we need to suspend a synchronized thread unconditionally then
+              we use wait() method.To call wait() method on any object we
+              must have that particular object lock otherwise we will get a
+              runtime exception called IllegalMonitorStateException.
+              Once a thread calls wait() method on any object, first it releases the
+              lock immediately of that particular object and then it enters into the 
+              waiting state immediately.
+                    
+              
+   notify():-
+             Whenever we need to resume a suspended(waiting) thread then we use notify() method.
+              To call notify()method on any object we
+              must have that particular object lock otherwise we will get a
+              runtime exception called IllegalMonitorStateException.
+              Once a thread calls notify() method on any object it also releases the
+              lock of that object but not immediately.
+              
+  notifyAll() - If a thread calls notifyAll(), it sends notification to all parent threads that
+                are in waiting state to resume their execution.
+                To call notifyAll() method on any object we
+                must have that particular object lock otherwise we will get a
+                runtime exception called IllegalMonitorStateException. 
+                
+                
+                
+                
+ for example:-
+       class MyThread implements Runnable{
+	int total = 0;
+	
+	@Override
+	public void run() {
+		
+		synchronized(this) {
+			System.out.println("Child thread doing operation");
+			
+			for(int i=0; i<10; i++) {
+				total += i;
+			}
+			
+			System.out.println("Child thread sending notification");
+			this.notify();
+		}
+	}
+}
+
+
+class Main{
+	public static void main(String[] args) {
+		MyThread mt = new MyThread();
+		Thread t = new Thread(mt);
+		
+		t.start();
+		
+		synchronized(mt) {
+
+			try {
+				System.out.println("Main waiting");
+				mt.wait(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			System.out.println("Main got notification");
+			System.out.println("Total " + mt.total);
+		}
+	}
+}
+*****************************************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

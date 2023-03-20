@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="D:\PRAJU_\Assignment U-4"/>
+			<item value="D:\PRAJU_\Assignment U-4\springcore_D2"/>
+			<item value="D:\PRAJU_\Assignment U-4\Unit5_SpringBasic_D2"/>
+			<item value="D:\PRAJU_\Assignment U-4\Evaluation3"/>
+			<item value="D:\PRAJU_\Assignment U-4\Day18 _Hibernate"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="com.maven"/>
+			<item value="com.masai"/>
+			<item value="com.basic"/>
+			<item value="SpringCOre_D2"/>
+			<item value="unit5_springBasic"/>
+			<item value="com.spring_d2"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="springc_D2q2"/>
+			<item value="springc_d2"/>
+			<item value="Springcore_d2"/>
+			<item value="SpringCore_D2"/>
+			<item value="com.day2"/>
+			<item value="D1_springBasic"/>
+			<item value="SpringBasic1"/>
+			<item value="hibernatedaoapp1"/>
+			<item value="hibernatedao1"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.ui.internal.dialogs.MavenRepositorySearchDialog">
+		<item key="width" value="480"/>
+		<item key="height" value="531"/>
+		<item key="x" value="-1011"/>
+		<item key="y" value="206"/>
+	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="D:\PRAJU_\Java Notes\revision\Ekart_Backend-main"/>
+			<item value="D:\PRAJU_\ja111_project_abstract\Final_project_of_java"/>
+			<item value="D:\PRAJU_\project\project_java_main1"/>
+			<item value="D:\PRAJU_\Assignment U-4\springbootdatajpaapp1"/>
+			<item value="D:\PRAJU_\project\Online_Food_Delivery_app\Online_Food_Delivery_app"/>
+			<item value="D:\PRAJU_\project\myjava project\Online_Food_Delivery_app(pratice)"/>
+			<item value="D:\PRAJU_\project\myjava project"/>
+			<item value="D:\PRAJU_\project\Online_Food_Delivery_app"/>
+			<item value="D:\PRAJU_\project\Online_Food_Delivery_app-main"/>
+			<item value="D:\PRAJU_\Assignment U-4\Evaluationc2\Springboot_C2"/>
+			<item value="D:\PRAJU_\Assignment U-4\Springboot_C2"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="naya_salk"/>
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+</section>

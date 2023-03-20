@@ -1,0 +1,58 @@
+Que:- What is a race condition? How will you find and solve race condition show with proper running code ?
+Ans:
+     Race condition is a situation when two threads running simultaneously are trying to
+     access the same shared resource.  If two threads operating simultaneously, are trying 
+     to operate on same functionality then it leads to concurrency problem which leads to 
+     race condition and race condition leads to data inconsistency.
+     
+     For example/ If two threads are simultaneously trying to execute bank functions on an
+     account, this may lead to inconsistent behaviour.We solve the race condition by using 
+     synchronized keyword. We make our method synchronized, so that only one thread can 
+     execute that function at one time. Any other thread trying to execute the same function,
+      needs to wait for the first thread to complete its execution. This ensures thread safety
+     is achieved.
+     In below example, one of the threads suppose t1 gets object lock of x1, now t2 will not be able to execute the non-static synchronized function fun() of X class till t1 completes execution. This ensures there is no inconsitent output.
+
+class X{
+	synchronized void fun(String name){
+		System.out.println("Hello " + name);
+		try{
+			Thread.sleep(1000);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+		System.out.println("Have a nice day " + name);
+	}
+}
+
+class MyThread extends Thread{
+	String name;
+	X x1;
+	
+	public MyThread(X x1, String name){
+		this.x1 = x1;
+		this.name = name;
+	}
+
+	@Override
+	public void run(){
+		x1.fun(name);
+	}
+}
+
+class Main{
+	public static void main(String[] args){
+		X x1 = new X();
+
+		Thread t1 = new MyThread(x1, "Riya");
+		Thread t2 = new MyThread(x1, "Kriya");
+		
+		t1.start();
+		t2.start();
+	}
+}
+		
+     
+    

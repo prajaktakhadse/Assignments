@@ -1,0 +1,139 @@
+Q2
+a) What are the advantages of using spring boot over spring.
+
+
+    -  It aims to shortens the code length  and provide provide easiest way to develop web applications.
+    -  it reduces boilerplate code.
+    -  No need for the deployment of war files.
+    -  No need for xml configuration.
+    -  Spring boot offers embedded server such as Tomcat,Jetty etc.
+    -  Simple setup and management.
+    -  It helps  to create standalone applications.
+    -  As it reduce the code testing is easy.
+
+b) Explain types of Bean Scopes and Explain any two of them.
+
+  
+   1.Singleton
+   2.Prototype
+   3.request
+   4.session
+   
+
+  1.Singleton:
+              This is the default type of spring bean scope.It return same bean  class objetc for all the getBean()
+    method  call with the same bean id.   i.e. whenever we are pulling e an object wit the same id multiple time, contaner will return same object. 
+    This scope implies that Spring container will create an only shared instance of the class designated by this bean, 
+    so each time the Bean is required the same object will be injected. if the same bean class is configured with differ id then container creates
+    one more object for that bean , it means container make a spring bean object as a singleton with respect to the id.
+
+  Ex:-
+   A obj1 = ctx.getBean("a1",A.class);
+
+   A obj2 = ctx.getBean("a1",A.class);
+
+
+   System.out.println(obj1 == obj2);
+  
+
+  2. Prototype:-
+             It produces a new instance  each and every time is bean as a requested. It returns a separate bean class for every getBean()
+     method call with the same id. To put the bean object in Prototype scope  we need to mention by using scopr attribute of the bean tag.
+
+
+   <bean id = "**" class = "**" scope = "prototype">
+ 
+  
+
+
+   </bean>
+
+   
+A obj1 = ctx.getBean("a1",A.class);
+
+   A obj2 = ctx.getBean("a1",A.class);
+
+    System.out.println(obj1 == obj2); 
+  here, it will create  new object every time in container and return as true.
+==================================================================================================================
+
+
+Q3 What are
+
+1. SOAP-based Webservices
+Ans:-- SOAP stands for Simple Object Access Protocol.It is an XML based protocol, to communicate between the client applications to the server application, 
+       since it is XML based, it is platform-independent and language independent.It has some specification which could be used across all applications.
+       SOAP was developed as an intermediate language so that applications built on various programming languages could talk easily to each other and 
+       avoid the extreme development effort.
+      -
+       -  SOAP is a light-weight protocol that is used for data interchange between applications.
+          It is a platform & language indpendent.
+         SOAP defines its own security.
+      
+
+
+2. Restful Web Services
+Ans:-- REST stands for REpresentational State Transfer. REST is an architectural style . It  create a web service with the required operation
+       and expose them through the HTTP protocol and allow them to be accessed by the client with the help of http protocol only without any binding
+       classes and any XML files.
+       
+       GET: It reads a resource.
+       PUT: It updates an existing resource.
+       POST: It creates a new resource.
+       DELETE: It deletes the resource.
+
+
+      RESTful web services are platform-independent.
+      It can be written in any programming language and can be executed on any platform.
+      It is fast in comparison to SOAP because there is no strict specification like SOAP.
+      These are reusable.
+     
+========================================================================================================================================================
+
+
+Q4 a) What is difference between @RestController and @Controller
+
+	 1. The @Controller is a annotation to mark class as Controller Class in Spring While @RestController is used in REST Web services and similar to 
+           @Controller and @ResponseBody annotation.
+        2. The @Controller annotation indicates that the class is controller like web Controller while @RestController annotation indicates that the class
+           is controller where @RequestMapping Method assume @ResponseBody by Default(i.e REST APIs).
+        3. With @Controller annotation you still have that control that you can annotate individual methods with @ResponseBody annotation.
+           With @RestController annotation all the handler methods of the class write their result to the response body.
+        4. Key difference between a traditional MVC @Controller and the RESTful web service @RestController
+ 
+          
+
+b) What is the use of @Autowired annotation?Explain
+	The @Autowired annotation is used in the class constructor method. In the spring boot, @Autowired assigns values to the constructor.
+      This is an alternative to using the @Autowired annotation in properties.This annotation we can apply on the fields/variable or the setter method 
+     or on the constructor of a spring bean.The variable on which we apply the @Autowired annotation must be a reference type variable not the primitive variable.
+      If we apply @Autowired annotation on the top of the reference variable then no need to
+     explicitly define the setter method. 
+
+        - Autowiring requires less code because we don’t need to write the code to inject the dependency explicitly.
+    
+	- It reduces develop time by removing the necessity of specifying properties and constructor arguments.
+    
+
+Disavdantages :
+
+   1. Wiring information may not be available to tools that generate documentation from a Spring container.
+   2. Multiple bean definition within the container may match the type specified by the constructor or setter method argument to be autowired.
+
+
+
+=============================================================================================================================================
+
+
+
+
+
+
+      
+
+   
+           
+
+
+   
+    

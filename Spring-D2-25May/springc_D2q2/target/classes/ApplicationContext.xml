@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- step3: -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd" >
+       
+       
+    <!-- create the student object  -->
+    <!-- *******************1st student...********************** -->
+    <bean id="stu1" class="com.springc_D2q2.Students">
+    
+              <constructor-arg  value = "01"/>
+              <constructor-arg value ="Name1" />
+              <constructor-arg value = "500"/>
+    </bean>
+    <!-- 2nd student... -->
+     
+     <bean id="stu2" class="com.springc_D2q2.Students">
+            <constructor-arg  value = "02"/>
+             <constructor-arg value ="Name2" />
+      		 <constructor-arg value = "400"/>
+ 	 </bean>
+    <!-- 3rd student... -->
+    
+     <bean id="stu3" class="com.springc_D2q2.Students">
+			<constructor-arg  value = "03"/>
+     		<constructor-arg value ="Name3" />
+    	    <constructor-arg value = "450"/>
+    </bean>
+    
+    <!-- 4th student... -->
+     <bean id="stu4" class="com.springc_D2q2.Students">
+     		<constructor-arg  value = "04"/>
+     		<constructor-arg value ="Name4" />
+     		 <constructor-arg value = "300"/>
+     </bean>
+    
+    <!-- 5th student... -->
+     <bean id="stu5" class="com.springc_D2q2.Students">
+    		 <constructor-arg  value = "05"/>
+   			 <constructor-arg value ="Name5" />
+     		 <constructor-arg value = "300"/>
+      </bean>
+    
+    
+    <!--****************** Institute Object....*************** -->
+    <bean id ="insti"  class="com.springc_D2q2.Institute" init-method="Start" destroy-method="end"> <!-- java bean object create in container -->
+		    <property name="studentlist"> <!-- set value of variable  through setter n getter-->
+		    	<list>   <!-- upr k student k student add kiye -->
+		    	   <ref bean="stu1"/>
+		    	   <ref bean="stu2"/>
+		    	   <ref bean="stu3"/>
+		    	   <ref bean="stu4"/>
+		    	   <ref bean="stu5"/>
+		    	</list>
+		    </property>
+			    
+    </bean>
+    
+  <!--********************Cities Object.....********************* -->  
+    <bean id ="city" class="com.springc_D2q2.Cities">
+      <property name="cities">
+        <list>
+          <value>Delhi</value>
+          <value>Mumbai</value>
+          <value>Pune</value>
+          <value>Cpur</value>
+          <value>Roha</value>
+             </list>
+      </property>
+    </bean>
+
+
+</beans>

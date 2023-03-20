@@ -1,0 +1,21 @@
+What are the steps involved in the bean life cycle?
+Also, show the examples for Initialization phase and destruction-phase
+using( initMethod() and user-defined destroy(), close() methods )
+i.e.by adding a print statement saying “object with is initialised” or object
+is destroyed. For both singleton and prototype scope of beans
+
+-----------------------------------------------------------------------
+
+Beans are nothing but objects in Spring. 
+IOC container in Spring is responsible for creating objects from the 
+configuration metadata that we supply in a config file. 
+The container is responsible to manage the overall life cycle of the Spring beans 
+i.e from the creation of a bean to its destruction. 
+
+1. Firstly, the Spring Container creates the object of the bean. Here, Bean gets instantiated.
+2. Then, the Dependencies are Injected using XML or annotation-based configuration.
+3. Now, the init() method is called where the initialization is done. for eg., if you have any connection to initialize you can initialize them inside this method.
+4. Now, we read the bean and use them and call the respective methods.
+5. At last, the destroy() method is called for some clean-up process and then the beans are destroyed.
+
+Thus this is the process flow of Bean Life Cycle in Spring Bean. The important thing here is that the init() method is called after the properties are set i.e after injecting the dependencies.
